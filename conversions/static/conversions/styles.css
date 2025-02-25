@@ -248,6 +248,39 @@ footer a:hover {
     font-size: 14px;
 }
 
+/* Command List Styling */
+.command-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.command-list li {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.command-list strong {
+    color: #368585;
+}
+
+#command-search {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.command-list-wrapper {
+    max-height: 500px; /* Adjust as needed */
+    overflow-y: auto;
+}
+
 /* Right column styling */
 .right-column .tools-container {
     padding: 15px;
@@ -268,4 +301,10 @@ footer a:hover {
     text-align: center;
     font-size: 1.2em;
     font-weight: bold;
+}
+
+/* Elevation Certificates Table Styling */
+.building-models-table-wrapper {
+    max-height: 500px; /* Limits height, adjustable */
+    overflow-y: auto; /* Enables vertical scrolling */
 }

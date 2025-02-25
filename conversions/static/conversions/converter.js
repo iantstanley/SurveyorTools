@@ -223,13 +223,99 @@ document.addEventListener('DOMContentLoaded', function() {
     const ordinanceSearch = document.getElementById('ordinance-search');
     const ordinanceList = document.querySelector('.ordinance-list');
 
-    ordinanceSearch.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
-        ordinanceList.querySelectorAll('li').forEach(item => {
-            const text = item.textContent.toLowerCase();
-            item.style.display = text.includes(searchTerm) ? 'block' : 'none';
+    if (ordinanceSearch && ordinanceList) {
+        ordinanceSearch.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            ordinanceList.querySelectorAll('li').forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(searchTerm) ? 'block' : 'none';
+            });
         });
-    });
+    }
+
+    // Command Search Functionality
+    const commandSearch = document.getElementById('command-search');
+    const commandList = document.querySelector('.command-list');
+
+    if (commandSearch && commandList) {
+        commandSearch.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            commandList.querySelectorAll('li').forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(searchTerm) ? 'block' : 'none';
+            });
+        });
+    }
+
+    // Document Deciphering Form Submission
+    const decipherForm = document.getElementById('decipher-form');
+    if (decipherForm) {
+        decipherForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            fetch('/upload-document/', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const resultDiv = document.getElementById('decipher-result');
+                if (data.text) {
+                    resultDiv.innerHTML = '<pre>' + data.text + '</pre>';
+                } else {
+                    resultDiv.innerHTML = '<p>Error: ' + data.error + '</p>';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('decipher-result').innerHTML = '<p>Error processing document.</p>';
+            });
+        });
+    }
+
+    // Deed Information Extraction Form Submission
+    const deedForm = document.getElementById('deed-form');
+    if (deedForm) {
+        deedForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            fetch('/extract-deed-info/', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('deed-table').querySelector('tbody');
+                if (data.results) {
+                    // Clear existing rows
+                    tableBody.innerHTML = '';
+                    data.results.forEach(function(result) {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${result.date}</td>
+                            <td>${result.grantor}</td>
+                            <td>${result.grantee || ''}</td>
+                            <td>${result.parcel_number || ''}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                } else {
+                    console.error('Error:', data.error);
+                    tableBody.innerHTML = '<tr><td colspan="4">Error: ' + data.error + '</td></tr>';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('deed-table').querySelector('tbody').innerHTML = '<tr><td colspan="4">Error processing documents.</td></tr>';
+            });
+        });
+    }
 
     // Initialize with Unit Conversion Suite active
     document.getElementById('unit-conversion-content').classList.add('active');
