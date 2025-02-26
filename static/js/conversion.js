@@ -1,13 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Tab functionality
-    setupTabs('.tab-button', '.conversion-content .tab-content');
-    setupTabs('.reference-tab-button', '.reference-tab-content');
+    // Tab functionality - Make selectors more specific to avoid conflicts
+    setupTabs('.conversion-tabs .tab-button', '.conversion-content .tab-content');
+    setupTabs('.reference-tabs .reference-tab-button', '.reference-content .reference-tab-content');
     
     // Fill the fraction reference table
     fillFractionReferenceTable();
     
     // Setup event listeners for conversions
     setupEventListeners();
+    
+    // Make sure we don't interfere with main tab navigation
+    console.log('Conversion.js loaded - Setting up conversion tools only');
 });
 
 // Tab functionality

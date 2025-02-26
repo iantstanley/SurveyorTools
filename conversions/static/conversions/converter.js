@@ -29,45 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
-        // Tab functionality - Make selectors more specific to avoid conflicts
-        setupTabs('.conversion-tabs .tab-button', '.conversion-content .tab-content');
-        setupTabs('.reference-tabs .reference-tab-button', '.reference-content .reference-tab-content');
-        
-        // Fill the fraction reference table
-        fillFractionReferenceTable();
-        
-        // Setup event listeners for conversions
-        setupEventListeners();
-        
-        // Make sure we don't interfere with main tab navigation
-        console.log('Conversion.js loaded - Setting up conversion tools only');
-    });
-    
-    // Tab functionality
-    function setupTabs(tabSelector, contentSelector) {
-        const tabs = document.querySelectorAll(tabSelector);
-        const contents = document.querySelectorAll(contentSelector);
-        
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function() {
-                // Remove active class from all tabs and contents
-                tabs.forEach(t => t.classList.remove('active'));
-                contents.forEach(c => c.classList.remove('active'));
-                
-                // Add active class to clicked tab
-                this.classList.add('active');
-                
-                // Show corresponding content
-                const tabId = this.getAttribute('data-tab');
-                const content = document.getElementById(tabId + '-tab');
-                if (content) {
-                    content.classList.add('active');
-                }
-            });
-        });
-    }
-
     // Feet & Inches to Decimal Feet
     const feetInput = document.getElementById('feet');
     const inchesInput = document.getElementById('inches');
@@ -92,9 +53,9 @@ document.addEventListener('DOMContentLoaded', function() {
         decimalFeetOutput.textContent = decimalFeet.toFixed(4);
     }
 
-    feetInput.addEventListener('input', updateDecimalFeet);
-    inchesInput.addEventListener('input', updateDecimalFeet);
-    fractionInput.addEventListener('input', updateDecimalFeet);
+    if (feetInput) feetInput.addEventListener('input', updateDecimalFeet);
+    if (inchesInput) inchesInput.addEventListener('input', updateDecimalFeet);
+    if (fractionInput) fractionInput.addEventListener('input', updateDecimalFeet);
 
     // Decimal Feet to Feet & Inches
     const decimalInput = document.getElementById('decimal');
@@ -124,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
         inchesOutput.textContent = inchesDisplay;
     }
 
-    decimalInput.addEventListener('input', updateFeetInches);
+    if (decimalInput) decimalInput.addEventListener('input', updateFeetInches);
 
     // Square Feet to Acreage
     const squareFeetInput = document.getElementById('square-feet');
@@ -142,8 +103,8 @@ document.addEventListener('DOMContentLoaded', function() {
         squareFeetInput.value = squareFeet.toFixed(2);
     }
 
-    squareFeetInput.addEventListener('input', updateAcreage);
-    acreageInput.addEventListener('input', updateSquareFeet);
+    if (squareFeetInput) squareFeetInput.addEventListener('input', updateAcreage);
+    if (acreageInput) acreageInput.addEventListener('input', updateSquareFeet);
 
     // Chains to Feet
     const chainsInput = document.getElementById('chains');
@@ -155,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
         chainsToFeetOutput.textContent = feet.toFixed(4);
     }
 
-    chainsInput.addEventListener('input', updateChainsToFeet);
+    if (chainsInput) chainsInput.addEventListener('input', updateChainsToFeet);
 
     // Rods to Feet
     const rodsInput = document.getElementById('rods');
@@ -167,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
         rodsToFeetOutput.textContent = feet.toFixed(4);
     }
 
-    rodsInput.addEventListener('input', updateRodsToFeet);
+    if (rodsInput) rodsInput.addEventListener('input', updateRodsToFeet);
 
     // Links to Feet
     const linksInput = document.getElementById('links');
@@ -179,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
         linksToFeetOutput.textContent = feet.toFixed(4);
     }
 
-    linksInput.addEventListener('input', updateLinksToFeet);
+    if (linksInput) linksInput.addEventListener('input', updateLinksToFeet);
 
     // Furlongs to Feet
     const furlongsInput = document.getElementById('furlongs');
@@ -191,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
         furlongsToFeetOutput.textContent = feet.toFixed(4);
     }
 
-    furlongsInput.addEventListener('input', updateFurlongsToFeet);
+    if (furlongsInput) furlongsInput.addEventListener('input', updateFurlongsToFeet);
 
     // Basic Calculator
     const calcDisplay = document.getElementById('calc-display');
@@ -220,41 +181,43 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Clear All Button
     const clearButton = document.getElementById('clear');
-    clearButton.addEventListener('click', function() {
-        feetInput.value = '';
-        inchesInput.value = '';
-        fractionInput.value = '';
-        decimalInput.value = '';
-        squareFeetInput.value = '';
-        acreageInput.value = '';
-        chainsInput.value = '';
-        rodsInput.value = '';
-        linksInput.value = '';
-        furlongsInput.value = '';
-        calcDisplay.value = '';
-        expression = '';
-        decimalFeetOutput.textContent = '0.0000';
-        feetOutput.textContent = '0';
-        inchesOutput.textContent = '0';
-        chainsToFeetOutput.textContent = '0.0000';
-        rodsToFeetOutput.textContent = '0.0000';
-        linksToFeetOutput.textContent = '0.0000';
-        furlongsToFeetOutput.textContent = '0.0000';
-    });
+    if (clearButton) {
+        clearButton.addEventListener('click', function() {
+            if (feetInput) feetInput.value = '';
+            if (inchesInput) inchesInput.value = '';
+            if (fractionInput) fractionInput.value = '';
+            if (decimalInput) decimalInput.value = '';
+            if (squareFeetInput) squareFeetInput.value = '';
+            if (acreageInput) acreageInput.value = '';
+            if (chainsInput) chainsInput.value = '';
+            if (rodsInput) rodsInput.value = '';
+            if (linksInput) linksInput.value = '';
+            if (furlongsInput) furlongsInput.value = '';
+            if (calcDisplay) calcDisplay.value = '';
+            expression = '';
+            if (decimalFeetOutput) decimalFeetOutput.textContent = '0.0000';
+            if (feetOutput) feetOutput.textContent = '0';
+            if (inchesOutput) inchesOutput.textContent = '0';
+            if (chainsToFeetOutput) chainsToFeetOutput.textContent = '0.0000';
+            if (rodsToFeetOutput) rodsToFeetOutput.textContent = '0.0000';
+            if (linksToFeetOutput) linksToFeetOutput.textContent = '0.0000';
+            if (furlongsToFeetOutput) furlongsToFeetOutput.textContent = '0.0000';
+        });
+    }
 
-    // Tab Switching Functionality
-    const tabs = document.querySelectorAll('.tabs a');
-    const tabContents = document.querySelectorAll('.tab-content');
+    // Main Tab Switching Functionality - Keep this separate from conversion tabs
+    const mainTabs = document.querySelectorAll('.tabs a');
+    const mainTabContents = document.querySelectorAll('.tab-content');
 
-    tabs.forEach(tab => {
+    mainTabs.forEach(tab => {
         tab.addEventListener('click', function(e) {
             e.preventDefault();
-            tabs.forEach(t => t.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
+            mainTabs.forEach(t => t.classList.remove('active'));
+            mainTabContents.forEach(content => content.classList.remove('active'));
             this.classList.add('active');
             const tabId = this.getAttribute('data-tab');
             document.getElementById(tabId + '-content').classList.add('active');
-            console.log('Switched to tab:', tabId);
+            console.log('Switched to main tab:', tabId);
         });
     });
 
