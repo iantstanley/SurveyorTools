@@ -29,6 +29,45 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    document.addEventListener('DOMContentLoaded', function() {
+        // Tab functionality - Make selectors more specific to avoid conflicts
+        setupTabs('.conversion-tabs .tab-button', '.conversion-content .tab-content');
+        setupTabs('.reference-tabs .reference-tab-button', '.reference-content .reference-tab-content');
+        
+        // Fill the fraction reference table
+        fillFractionReferenceTable();
+        
+        // Setup event listeners for conversions
+        setupEventListeners();
+        
+        // Make sure we don't interfere with main tab navigation
+        console.log('Conversion.js loaded - Setting up conversion tools only');
+    });
+    
+    // Tab functionality
+    function setupTabs(tabSelector, contentSelector) {
+        const tabs = document.querySelectorAll(tabSelector);
+        const contents = document.querySelectorAll(contentSelector);
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs and contents
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = this.getAttribute('data-tab');
+                const content = document.getElementById(tabId + '-tab');
+                if (content) {
+                    content.classList.add('active');
+                }
+            });
+        });
+    }
+
     // Feet & Inches to Decimal Feet
     const feetInput = document.getElementById('feet');
     const inchesInput = document.getElementById('inches');

@@ -1678,11 +1678,13 @@
         <p>© 2025 Stanley Survey Solutions. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript files -->
+<!-- JavaScript files -->
 <script src="{% static 'js/document-processing.js' %}"></script>
 <script src="{% static 'js/drafting-tools.js' %}"></script>
 <script src="{% static 'js/elevation-certificates.js' %}"></script>
+<!-- Load converter.js first -->
 <script src="{% static 'conversions/converter.js' %}"></script>
+<!-- Then load conversion.js -->
 <script src="{% static 'conversions/conversion.js' %}"></script>
 </body>
 </html>
