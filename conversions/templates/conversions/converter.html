@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="{% static 'conversions/drafting-styles.css' %}">
         <link rel="stylesheet" href="{% static 'conversions/elevation-styles.css' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="{% static 'conversions/conversion-styles.css' %}">
     </head>
 <body>
     <main>
@@ -25,195 +26,376 @@
         <div id="unit-conversion-content" class="tab-content active">
             <h1>Stanley Survey Solutions - Unit Conversion Suite</h1>
             <div class="main-container">
-                <div class="left-column">
-                    <div class="tools-container">
-                        <h2>Feet & Inches to Decimal Feet</h2>
-                        <form>
-                            <label for="feet">Feet:</label>
-                            <input type="number" id="feet" name="feet" min="0" step="1" placeholder="Enter feet here"><br>
-                            <label for="inches">Inches:</label>
-                            <input type="number" id="inches" name="inches" min="0" step="any" placeholder="Enter inches here"><br>
-                            <label for="fraction">Fraction of Inch:</label>
-                            <input type="text" id="fraction" name="fraction" placeholder="e.g., 1/2"><br>
-                        </form>
-                        <p class="result-field">Decimal Feet: <span id="decimal-feet">0.0000</span></p>
-                    </div>
-                    <div class="tools-container">
-                        <h2>Decimal Feet to Feet & Inches</h2>
-                        <form>
-                            <label for="decimal">Decimal Feet:</label>
-                            <input type="number" id="decimal" name="decimal" min="0" step="0.0001" placeholder="Enter decimal feet here"><br>
-                        </form>
-                        <p class="result-field">Feet: <span id="feet-output">0</span> Inches: <span id="inches-output">0</span></p>
-                    </div>
-                    <div class="tools-container">
-                        <h2>Square Feet to Acreage</h2>
-                        <form>
-                            <label for="square-feet">Square Feet:</label>
-                            <input type="number" id="square-feet" name="square-feet" min="0" step="any" placeholder="Enter square feet here"><br>
-                            <label for="acreage">Acreage:</label>
-                            <input type="number" id="acreage" name="acreage" min="0" step="any" placeholder="Enter acreage here"><br>
-                        </form>
-                    </div>
-                    <div class="tools-container">
-                        <h2>Chains to Feet</h2>
-                        <form>
-                            <label for="chains">Chains:</label>
-                            <input type="number" id="chains" name="chains" min="0" step="any" placeholder="Enter chains here"><br>
-                        </form>
-                        <p class="result-field">Feet: <span id="chains-to-feet">0.0000</span></p>
-                    </div>
-                    <div class="tools-container">
-                        <h2>Rods to Feet</h2>
-                        <form>
-                            <label for="rods">Rods:</label>
-                            <input type="number" id="rods" name="rods" min="0" step="any" placeholder="Enter rods here"><br>
-                        </form>
-                        <p class="result-field">Feet: <span id="rods-to-feet">0.0000</span></p>
-                    </div>
-                    <div class="tools-container">
-                        <h2>Links to Feet</h2>
-                        <form>
-                            <label for="links">Links:</label>
-                            <input type="number" id="links" name="links" min="0" step="any" placeholder="Enter links here"><br>
-                        </form>
-                        <p class="result-field">Feet: <span id="links-to-feet">0.0000</span></p>
-                    </div>
-                    <div class="tools-container">
-                        <h2>Furlongs to Feet</h2>
-                        <form>
-                            <label for="furlongs">Furlongs:</label>
-                            <input type="number" id="furlongs" name="furlongs" min="0" step="any" placeholder="Enter furlongs here"><br>
-                        </form>
-                        <p class="result-field">Feet: <span id="furlongs-to-feet">0.0000</span></p>
-                    </div>
-                    <button id="clear">Clear All</button>
+                <div class="conversion-tabs">
+                    <button class="tab-button active" data-tab="length">Length</button>
+                    <button class="tab-button" data-tab="area">Area</button>
+                    <button class="tab-button" data-tab="angle">Angle</button>
                 </div>
-                <div class="right-column">
-                    <div class="calculator">
-                        <h2>Calculator</h2>
-                        <input type="text" id="calc-display" readonly>
-                        <div class="calc-buttons">
-                            <button class="calc-btn" value="7">7</button>
-                            <button class="calc-btn" value="8">8</button>
-                            <button class="calc-btn" value="9">9</button>
-                            <button class="calc-btn" value="/">/</button>
-                            <button class="calc-btn" value="4">4</button>
-                            <button class="calc-btn" value="5">5</button>
-                            <button class="calc-btn" value="6">6</button>
-                            <button class="calc-btn" value="*">*</button>
-                            <button class="calc-btn" value="1">1</button>
-                            <button class="calc-btn" value="2">2</button>
-                            <button class="calc-btn" value="3">3</button>
-                            <button class="calc-btn" value="-">-</button>
-                            <button class="calc-btn" value="0">0</button>
-                            <button class="calc-btn" value=".">.</button>
-                            <button class="calc-btn" value="=">=</button>
-                            <button class="calc-btn" value="+">+</button>
-                            <button class="calc-btn" value="C">C</button>
+                
+                <div class="conversion-content">
+                    <!-- Length Conversions -->
+                    <div class="tab-content active" id="length-tab">
+                        <h2>Length Conversions</h2>
+                        
+                        <div class="conversion-card">
+                            <h3>Feet, Inches & Fractions ↔ Decimal Feet</h3>
+                            
+                            <div class="conversion-section">
+                                <h4>Feet, Inches & Fractions to Decimal Feet</h4>
+                                <div class="input-group">
+                                    <label for="feet-input">Feet:</label>
+                                    <input type="number" id="feet-input" min="0" value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="inches-input">Inches:</label>
+                                    <input type="number" id="inches-input" min="0" max="11" value="0">
+                                </div>
+                                <div class="input-group fraction-input">
+                                    <label for="fraction-numerator">Fraction:</label>
+                                    <input type="number" id="fraction-numerator" min="0" max="15" value="0">
+                                    <span class="fraction-divider">/</span>
+                                    <select id="fraction-denominator">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="6">6</option>
+                                        <option value="8">8</option>
+                                        <option value="12">12</option>
+                                        <option value="16" selected>16</option>
+                                        <option value="32">32</option>
+                                        <option value="64">64</option>
+                                    </select>
+                                </div>
+                                <button id="convert-to-decimal-btn" class="convert-btn">Convert</button>
+                                <div class="result-display">
+                                    <span id="decimal-feet-result">0.0000</span> Decimal Feet
+                                </div>
+                            </div>
+                            
+                            <div class="conversion-section">
+                                <h4>Decimal Feet to Feet, Inches & Fractions</h4>
+                                <div class="input-group">
+                                    <label for="decimal-feet-input">Decimal Feet:</label>
+                                    <input type="number" id="decimal-feet-input" min="0" step="0.0001" value="0.0000">
+                                </div>
+                                <div class="input-group">
+                                    <label>Fraction Precision:</label>
+                                    <select id="fraction-precision">
+                                        <option value="2">1/2, 1/4</option>
+                                        <option value="8">1/8, 3/8, 5/8, 7/8</option>
+                                        <option value="16" selected>1/16, 3/16, etc.</option>
+                                        <option value="32">1/32, 3/32, etc.</option>
+                                        <option value="64">1/64, 3/64, etc.</option>
+                                    </select>
+                                </div>
+                                <button id="convert-from-decimal-btn" class="convert-btn">Convert</button>
+                                <div class="result-display">
+                                    <span id="feet-result">0</span> Feet, 
+                                    <span id="inches-result">0</span> Inches, 
+                                    <span id="fraction-result">0/16</span> of an Inch
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-card">
+                            <h3>Other Length Conversions</h3>
+                            
+                            <div class="conversion-section">
+                                <h4>Convert Between Units</h4>
+                                <div class="input-group">
+                                    <label for="length-value">Value:</label>
+                                    <input type="number" id="length-value" min="0" step="0.0001" value="0.0000">
+                                </div>
+                                <div class="input-group">
+                                    <label for="length-from-unit">From:</label>
+                                    <select id="length-from-unit">
+                                        <option value="us-ft">US Feet</option>
+                                        <option value="int-ft">International Feet</option>
+                                        <option value="meter">Meters</option>
+                                        <option value="chain">Chains</option>
+                                        <option value="link">Links</option>
+                                        <option value="rod">Rods</option>
+                                        <option value="yard">Yards</option>
+                                        <option value="mile">Miles</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="length-to-unit">To:</label>
+                                    <select id="length-to-unit">
+                                        <option value="us-ft">US Feet</option>
+                                        <option value="int-ft">International Feet</option>
+                                        <option value="meter">Meters</option>
+                                        <option value="chain">Chains</option>
+                                        <option value="link">Links</option>
+                                        <option value="rod">Rods</option>
+                                        <option value="yard">Yards</option>
+                                        <option value="mile">Miles</option>
+                                    </select>
+                                </div>
+                                <button id="convert-length-btn" class="convert-btn">Convert</button>
+                                <div class="result-display">
+                                    <span id="length-result">0.0000</span> <span id="length-result-unit">US Feet</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="table-wrapper">
-                        <table id="whole-inches-table">
-                            <thead>
-                                <tr>
-                                    <th>Inch</th>
-                                    <th>Decimal of a Foot</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>1 inch</td><td>0.0833</td></tr>
-                                <tr><td>2 inches</td><td>0.167</td></tr>
-                                <tr><td>3 inches</td><td>0.250</td></tr>
-                                <tr><td>4 inches</td><td>0.333</td></tr>
-                                <tr><td>5 inches</td><td>0.417</td></tr>
-                                <tr><td>6 inches</td><td>0.500</td></tr>
-                                <tr><td>7 inches</td><td>0.583</td></tr>
-                                <tr><td>8 inches</td><td>0.667</td></tr>
-                                <tr><td>9 inches</td><td>0.750</td></tr>
-                                <tr><td>10 inches</td><td>0.833</td></tr>
-                                <tr><td>11 inches</td><td>0.917</td></tr>
-                                <tr><td>12 inches</td><td>1.000</td></tr>
-                            </tbody>
-                        </table>
+                    
+                    <!-- Area Conversions -->
+                    <div class="tab-content" id="area-tab">
+                        <h2>Area Conversions</h2>
+                        
+                        <div class="conversion-card">
+                            <h3>Square Feet ↔ Acres</h3>
+                            
+                            <div class="conversion-section">
+                                <h4>Square Feet to Acres</h4>
+                                <div class="input-group">
+                                    <label for="sq-feet-input">Square Feet:</label>
+                                    <input type="number" id="sq-feet-input" min="0" step="0.01" value="0.00">
+                                </div>
+                                <button id="convert-to-acres-btn" class="convert-btn">Convert</button>
+                                <div class="result-display">
+                                    <span id="acres-result">0.0000</span> Acres
+                                </div>
+                            </div>
+                            
+                            <div class="conversion-section">
+                                <h4>Acres to Square Feet</h4>
+                                <div class="input-group">
+                                    <label for="acres-input">Acres:</label>
+                                    <input type="number" id="acres-input" min="0" step="0.0001" value="0.0000">
+                                </div>
+                                <button id="convert-to-sq-feet-btn" class="convert-btn">Convert</button>
+                                <div class="result-display">
+                                    <span id="sq-feet-result">0.00</span> Square Feet
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-card">
+                            <h3>Other Area Conversions</h3>
+                            
+                            <div class="conversion-section">
+                                <h4>Convert Between Units</h4>
+                                <div class="input-group">
+                                    <label for="area-value">Value:</label>
+                                    <input type="number" id="area-value" min="0" step="0.0001" value="0.0000">
+                                </div>
+                                <div class="input-group">
+                                    <label for="area-from-unit">From:</label>
+                                    <select id="area-from-unit">
+                                        <option value="sq-ft">Square Feet</option>
+                                        <option value="acre">Acres</option>
+                                        <option value="sq-meter">Square Meters</option>
+                                        <option value="hectare">Hectares</option>
+                                        <option value="sq-mile">Square Miles</option>
+                                        <option value="sq-chain">Square Chains</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="area-to-unit">To:</label>
+                                    <select id="area-to-unit">
+                                        <option value="sq-ft">Square Feet</option>
+                                        <option value="acre">Acres</option>
+                                        <option value="sq-meter">Square Meters</option>
+                                        <option value="hectare">Hectares</option>
+                                        <option value="sq-mile">Square Miles</option>
+                                        <option value="sq-chain">Square Chains</option>
+                                    </select>
+                                </div>
+                                <button id="convert-area-btn" class="convert-btn">Convert</button>
+                                <div class="result-display">
+                                    <span id="area-result">0.0000</span> <span id="area-result-unit">Square Feet</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="table-wrapper fraction-table-wrapper">
-                        <table id="fraction-table">
-                            <thead>
-                                <tr>
-                                    <th>Fraction</th>
-                                    <th>Decimal</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>1/64</td><td>0.015625</td></tr>
-                                <tr><td>1/32</td><td>0.03125</td></tr>
-                                <tr><td>3/64</td><td>0.046875</td></tr>
-                                <tr><td>1/16</td><td>0.0625</td></tr>
-                                <tr><td>5/64</td><td>0.078125</td></tr>
-                                <tr><td>3/32</td><td>0.09375</td></tr>
-                                <tr><td>7/64</td><td>0.109375</td></tr>
-                                <tr><td>1/8</td><td>0.125</td></tr>
-                                <tr><td>9/64</td><td>0.140625</td></tr>
-                                <tr><td>5/32</td><td>0.15625</td></tr>
-                                <tr><td>11/64</td><td>0.171875</td></tr>
-                                <tr><td>3/16</td><td>0.1875</td></tr>
-                                <tr><td>13/64</td><td>0.203125</td></tr>
-                                <tr><td>7/32</td><td>0.21875</td></tr>
-                                <tr><td>15/64</td><td>0.234375</td></tr>
-                                <tr><td>1/4</td><td>0.25</td></tr>
-                                <tr><td>17/64</td><td>0.265625</td></tr>
-                                <tr><td>9/32</td><td>0.28125</td></tr>
-                                <tr><td>19/64</td><td>0.296875</td></tr>
-                                <tr><td>5/16</td><td>0.3125</td></tr>
-                                <tr><td>21/64</td><td>0.328125</td></tr>
-                                <tr><td>11/32</td><td>0.34375</td></tr>
-                                <tr><td>23/64</td><td>0.359375</td></tr>
-                                <tr><td>3/8</td><td>0.375</td></tr>
-                                <tr><td>25/64</td><td>0.390625</td></tr>
-                                <tr><td>13/32</td><td>0.40625</td></tr>
-                                <tr><td>27/64</td><td>0.421875</td></tr>
-                                <tr><td>7/16</td><td>0.4375</td></tr>
-                                <tr><td>29/64</td><td>0.453125</td></tr>
-                                <tr><td>15/32</td><td>0.46875</td></tr>
-                                <tr><td>31/64</td><td>0.484375</td></tr>
-                                <tr><td>1/2</td><td>0.5</td></tr>
-                                <tr><td>33/64</td><td>0.515625</td></tr>
-                                <tr><td>17/32</td><td>0.53125</td></tr>
-                                <tr><td>35/64</td><td>0.546875</td></tr>
-                                <tr><td>9/16</td><td>0.5625</td></tr>
-                                <tr><td>37/64</td><td>0.578125</td></tr>
-                                <tr><td>19/32</td><td>0.59375</td></tr>
-                                <tr><td>39/64</td><td>0.609375</td></tr>
-                                <tr><td>5/8</td><td>0.625</td></tr>
-                                <tr><td>41/64</td><td>0.640625</td></tr>
-                                <tr><td>21/32</td><td>0.65625</td></tr>
-                                <tr><td>43/64</td><td>0.671875</td></tr>
-                                <tr><td>11/16</td><td>0.6875</td></tr>
-                                <tr><td>45/64</td><td>0.703125</td></tr>
-                                <tr><td>23/32</td><td>0.71875</td></tr>
-                                <tr><td>47/64</td><td>0.734375</td></tr>
-                                <tr><td>3/4</td><td>0.75</td></tr>
-                                <tr><td>49/64</td><td>0.765625</td></tr>
-                                <tr><td>25/32</td><td>0.78125</td></tr>
-                                <tr><td>51/64</td><td>0.796875</td></tr>
-                                <tr><td>13/16</td><td>0.8125</td></tr>
-                                <tr><td>53/64</td><td>0.828125</td></tr>
-                                <tr><td>27/32</td><td>0.84375</td></tr>
-                                <tr><td>55/64</td><td>0.859375</td></tr>
-                                <tr><td>7/8</td><td>0.875</td></tr>
-                                <tr><td>57/64</td><td>0.890625</td></tr>
-                                <tr><td>29/32</td><td>0.90625</td></tr>
-                                <tr><td>59/64</td><td>0.921875</td></tr>
-                                <tr><td>15/16</td><td>0.9375</td></tr>
-                                <tr><td>61/64</td><td>0.953125</td></tr>
-                                <tr><td>31/32</td><td>0.96875</td></tr>
-                                <tr><td>63/64</td><td>0.984375</td></tr>
-                                <tr><td>1</td><td>1.0</td></tr>
-                            </tbody>
-                        </table>
+                    
+                    <!-- Angle Conversions -->
+                    <div class="tab-content" id="angle-tab">
+                        <h2>Angle Conversions</h2>
+                        
+                        <div class="conversion-card">
+                            <h3>Degrees, Minutes, Seconds ↔ Decimal Degrees</h3>
+                            
+                            <div class="conversion-section">
+                                <h4>Degrees, Minutes, Seconds to Decimal Degrees</h4>
+                                <div class="input-group">
+                                    <label for="degrees-input">Degrees:</label>
+                                    <input type="number" id="degrees-input" value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="minutes-input">Minutes:</label>
+                                    <input type="number" id="minutes-input" min="0" max="59" value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="seconds-input">Seconds:</label>
+                                    <input type="number" id="seconds-input" min="0" max="59.999" step="0.001" value="0.000">
+                                </div>
+                                <button id="convert-to-dec-degrees-btn" class="convert-btn">Convert</button>
+                                <div class="result-display">
+                                    <span id="dec-degrees-result">0.0000°</span>
+                                </div>
+                            </div>
+                            
+                            <div class="conversion-section">
+                                <h4>Decimal Degrees to Degrees, Minutes, Seconds</h4>
+                                <div class="input-group">
+                                    <label for="dec-degrees-input">Decimal Degrees:</label>
+                                    <input type="number" id="dec-degrees-input" step="0.0001" value="0.0000">
+                                </div>
+                                <button id="convert-from-dec-degrees-btn" class="convert-btn">Convert</button>
+                                <div class="result-display">
+                                    <span id="dms-result">0° 0' 0.000"</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-card">
+                            <h3>Bearings ↔ Azimuths</h3>
+                            
+                            <div class="conversion-section">
+                                <h4>Bearing to Azimuth</h4>
+                                <div class="input-group">
+                                    <label for="bearing-quadrant">Quadrant:</label>
+                                    <select id="bearing-quadrant">
+                                        <option value="NE">N-E</option>
+                                        <option value="SE">S-E</option>
+                                        <option value="SW">S-W</option>
+                                        <option value="NW">N-W</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="bearing-degrees">Degrees:</label>
+                                    <input type="number" id="bearing-degrees" min="0" max="89.9999" step="0.0001" value="0.0000">
+                                </div>
+                                <button id="convert-to-azimuth-btn" class="convert-btn">Convert</button>
+                                <div class="result-display">
+                                    <span id="azimuth-result">0.0000°</span>
+                                </div>
+                            </div>
+                            
+                            <div class="conversion-section">
+                                <h4>Azimuth to Bearing</h4>
+                                <div class="input-group">
+                                    <label for="azimuth-input">Azimuth (degrees):</label>
+                                    <input type="number" id="azimuth-input" min="0" max="359.9999" step="0.0001" value="0.0000">
+                                </div>
+                                <button id="convert-to-bearing-btn" class="convert-btn">Convert</button>
+                                <div class="result-display">
+                                    <span id="bearing-result">N 0.0000° E</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
+                <div class="conversion-reference">
+                    <h2>Quick Reference Tables</h2>
+                    
+                    <div class="reference-tabs">
+                        <button class="reference-tab-button active" data-tab="fractions">Inch Fractions</button>
+                        <button class="reference-tab-button" data-tab="survey-units">Survey Units</button>
+                        <button class="reference-tab-button" data-tab="area-equivalents">Area Equivalents</button>
+                    </div>
+                    
+                    <div class="reference-content">
+                        <div class="reference-tab-content active" id="fractions-tab">
+                            <h3>Inch Fractions to Decimal Feet</h3>
+                            <table class="reference-table">
+                                <thead>
+                                    <tr>
+                                        <th>Fraction</th>
+                                        <th>Decimal Inches</th>
+                                        <th>Decimal Feet</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="fraction-reference-table">
+                                    <!-- To be filled with JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="reference-tab-content" id="survey-units-tab">
+                            <h3>Survey Unit Equivalents</h3>
+                            <table class="reference-table">
+                                <thead>
+                                    <tr>
+                                        <th>Unit</th>
+                                        <th>Equivalent</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1 US Survey Foot</td>
+                                        <td>0.3048006096 Meters</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1 International Foot</td>
+                                        <td>0.3048 Meters</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1 Chain</td>
+                                        <td>66 US Feet</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1 Link</td>
+                                        <td>0.66 US Feet</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1 Rod (Pole or Perch)</td>
+                                        <td>16.5 US Feet</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1 Fathom</td>
+                                        <td>6 US Feet</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1 Mile</td>
+                                        <td>5,280 US Feet</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="reference-tab-content" id="area-equivalents-tab">
+                            <h3>Area Unit Equivalents</h3>
+                            <table class="reference-table">
+                                <thead>
+                                    <tr>
+                                        <th>Unit</th>
+                                        <th>Equivalent</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1 Acre</td>
+                                        <td>43,560 Square Feet</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1 Hectare</td>
+                                        <td>107,639.104 Square Feet</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1 Square Mile</td>
+                                        <td>640 Acres</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1 Square Chain</td>
+                                        <td>4,356 Square Feet</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1 Square Rod</td>
+                                        <td>272.25 Square Feet</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="clear-all" class="clear-btn">Clear All Fields</button>
             </div>
         </div>
 
@@ -1501,5 +1683,6 @@
 <script src="{% static 'js/drafting-tools.js' %}"></script>
 <script src="{% static 'js/elevation-certificates.js' %}"></script>
 <script src="{% static 'conversions/converter.js' %}"></script>
+<script src="{% static 'conversions/conversion.js' %}"></script>
 </body>
 </html>
