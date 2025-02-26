@@ -309,3 +309,81 @@ def extract_deed_info(request):
         logger.error(f"Unexpected error in extract_deed_info: {e}")
         logger.error(traceback.format_exc())
         return JsonResponse({'error': f'Server error: {str(e)}'}, status=500)
+    
+def classify_building_model(request):
+    """
+    Handle upload and classification of building images to recommend FEMA building diagrams.
+    """
+    if request.method != 'POST':
+        return JsonResponse({'error': 'Invalid request method'}, status=405)
+    
+    try:
+        if 'building_image' not in request.FILES:
+            return JsonResponse({'error': 'No image file uploaded'}, status=400)
+        
+        image_file = request.FILES['building_image']
+        
+        # Validate file type
+        allowed_extensions = ['.jpg', '.jpeg', '.png', '.gif']
+        file_ext = os.path.splitext(image_file.name.lower())[1]
+        if file_ext not in allowed_extensions:
+            return JsonResponse({'error': 'Invalid file type. Please upload a JPG, PNG, or GIF image.'}, status=400)
+        
+        # In a full implementation, you would use a machine learning model here
+        # For now, we'll use a simple simulation based on the filename
+        
+        # Save the image to media
+        from django.core.files.storage import default_storage
+        from django.core.files.base import ContentFile
+        
+        path = default_storage.save(f'building_images/{image_file.name}', ContentFile(image_file.read()))
+        image_url = os.path.join(settings.MEDIA_URL, path)
+        
+        # Simple simulation of building classification
+        # In a real implementation, this would be replaced with actual image analysis
+        filename_lower = image_file.name.lower()
+        
+        # Simulated classification based on filename keywords
+        if any(term in filename_lower for term in ['pier', 'pile', 'stilts', 'beach']):
+            model_type = '7'
+            description = 'This appears to be a building elevated on posts, piles, or piers (Diagram 7). This construction is common in coastal areas to allow storm surge to pass beneath the structure.'
+            confidence = 92
+        elif any(term in filename_lower for term in ['crawl', 'space', 'vent']):
+            model_type = '5'
+            description = 'This appears to be a building with a crawlspace (Diagram 5). The structure is elevated on solid foundation walls creating an enclosed area below the living space.'
+            confidence = 88
+        elif any(term in filename_lower for term in ['garage', 'storage', 'enclosure']):
+            model_type = '6'
+            description = 'This appears to be a building with an enclosure below the elevated floor (Diagram 6). The enclosure is typically used for parking, storage, or building access.'
+            confidence = 85
+        elif any(term in filename_lower for term in ['basement', 'cellar']):
+            model_type = '3'
+            description = 'This appears to be a building with a basement (Diagram 3). The basement is below grade on at least one side.'
+            confidence = 90
+        elif any(term in filename_lower for term in ['slab', 'concrete']):
+            if any(term in filename_lower for term in ['raised', 'elevated']):
+                model_type = '2'
+                description = 'This appears to be a building with a raised slab foundation (Diagram 2). The slab is elevated above the surrounding grade, often with fill material.'
+                confidence = 87
+            else:
+                model_type = '1'
+                description = 'This appears to be a building on a slab-on-grade foundation (Diagram 1). The first floor is at or very near ground level.'
+                confidence = 84
+        else:
+            # Default classification if no specific features are detected
+            model_type = '1'
+            description = 'Based on the visible features, this appears to be a standard slab-on-grade building (Diagram 1). For a more accurate classification, please provide additional photos showing the foundation details.'
+            confidence = 75
+        
+        return JsonResponse({
+            'success': True,
+            'model_type': model_type,
+            'description': description,
+            'confidence': confidence,
+            'image_url': image_url
+        })
+    
+    except Exception as e:
+        logger.error(f"Error classifying building image: {e}")
+        logger.error(traceback.format_exc())
+        return JsonResponse({'error': f'Server error: {str(e)}'}, status=500)

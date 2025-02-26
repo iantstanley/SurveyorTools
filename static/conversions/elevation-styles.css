@@ -1,0 +1,458 @@
+/* Elevation Certificates Specific Styles */
+#elevation-certificates-content .main-container {
+    flex-direction: column;
+}
+
+.elevation-header {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.elevation-header h2 {
+    color: #368585;
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.elevation-header p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.elevation-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.elevation-section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.elevation-section h2 {
+    color: #368585;
+    margin-top: 0;
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.resource-link {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.2s;
+}
+
+.resource-link:hover {
+    background-color: #e0f0f0;
+}
+
+.resource-link i {
+    color: #368585;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.resource-link-title {
+    font-weight: bold;
+}
+
+.resource-link-desc {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Model Classification System */
+.model-classification {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.model-classification h2 {
+    color: #368585;
+    margin-top: 0;
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+#model-classification-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#model-classification-form input[type="file"] {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#model-classification-form button {
+    background-color: #368585;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+#model-classification-form button:hover {
+    background-color: #2a6767;
+}
+
+#model-classification-result {
+    margin-top: 20px;
+}
+
+.model-result {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.model-result h3 {
+    color: #368585;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.model-result-main {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.model-result-image {
+    flex: 0 0 200px;
+}
+
+.model-result-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.model-result-info {
+    flex: 1;
+}
+
+.model-type-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.model-type-value {
+    font-size: 24px;
+    color: #368585;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.model-type-confidence {
+    color: #666;
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.model-type-description {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.model-guidance {
+    background-color: #f0f7fa;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
+    color: #555;
+    border-left: 3px solid #368585;
+}
+
+/* Building Models Section */
+.building-models {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.building-models h2 {
+    color: #368585;
+    margin-top: 0;
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.model-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.model-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.model-card:hover {
+    transform: translateY(-5px);
+}
+
+.model-card-header {
+    padding: 15px;
+    background-color: #368585;
+    color: white;
+}
+
+.model-card-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.model-card-body {
+    padding: 15px;
+}
+
+.model-card-body p {
+    margin-top: 0;
+    color: #555;
+}
+
+.model-image {
+    width: 100%;
+    height: 150px;
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.model-image img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+.model-details-toggle {
+    background: none;
+    border: none;
+    color: #368585;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.model-details {
+    display: none;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #eee;
+}
+
+.model-details.show {
+    display: block;
+}
+
+.model-features {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.model-features li {
+    padding: 5px 0;
+    border-bottom: 1px dotted #eee;
+}
+
+.model-features li:last-child {
+    border-bottom: none;
+}
+
+/* Flood Zone Lookup */
+.flood-zone-lookup {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.flood-zone-lookup h2 {
+    color: #368585;
+    margin-top: 0;
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+#flood-zone-lookup-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#flood-zone-lookup-form input[type="text"] {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#flood-zone-lookup-form button {
+    background-color: #368585;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+#flood-zone-lookup-form button:hover {
+    background-color: #2a6767;
+}
+
+.flood-zone-result-content {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.flood-zone-result-content h3 {
+    color: #368585;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.result-section {
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.zone-AE {
+    font-weight: bold;
+    color: #1565c0;
+}
+
+.zone-VE {
+    font-weight: bold;
+    color: #c62828;
+}
+
+.zone-X {
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.zone-A {
+    font-weight: bold;
+    color: #6a1b9a;
+}
+
+.zone-AO {
+    font-weight: bold;
+    color: #e65100;
+}
+
+.zone-info {
+    background-color: #f0f7fa;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 3px solid #368585;
+}
+
+.action-links {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.btn-link {
+    display: inline-block;
+    background-color: #368585;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.btn-link:hover {
+    background-color: #2a6767;
+}
+
+.disclaimer {
+    font-size: 12px;
+    color: #666;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .elevation-sections {
+        grid-template-columns: 1fr;
+    }
+    
+    .model-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .model-result-main {
+        flex-direction: column;
+    }
+    
+    .model-result-image {
+        flex: 0 0 auto;
+        margin-bottom: 15px;
+    }
+    
+    #flood-zone-lookup-form,
+    #model-classification-form {
+        flex-direction: column;
+    }
+    
+    .action-links {
+        flex-direction: column;
+    }
+}

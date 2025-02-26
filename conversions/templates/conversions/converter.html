@@ -1,15 +1,16 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stanley Survey Solutions</title>
-    <link rel="stylesheet" href="{% static 'conversions/styles.css' %}">
-    <link rel="stylesheet" href="{% static 'conversions/document-styles.css' %}">
-    <link rel="stylesheet" href="{% static 'conversions/drafting-styles.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Stanley Survey Solutions</title>
+        <link rel="stylesheet" href="{% static 'conversions/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'conversions/document-styles.css' %}">
+        <link rel="stylesheet" href="{% static 'conversions/drafting-styles.css' %}">
+        <link rel="stylesheet" href="{% static 'conversions/elevation-styles.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
 <body>
     <main>
         <div class="tabs">
@@ -1078,149 +1079,373 @@
 </div>
 
         <!-- Elevation Certificates Content -->
-        <div id="elevation-certificates-content" class="tab-content">
-            <h1>Stanley Survey Solutions - Elevation Certificates</h1>
-            <div class="main-container">
-                <div class="left-column">
-                    <div class="tools-container">
-                        <h2>Elevation Certificates</h2>
-                        <p>
-                            Access resources and information for FEMA Elevation Certificates, including the official form,
-                            local flood maps, and building model examples to assist with flood risk assessment.
-                        </p>
+<div id="elevation-certificates-content" class="tab-content">
+    <h1>Stanley Survey Solutions - Elevation Certificates</h1>
+    <div class="main-container">
+        <!-- Introduction Section -->
+        <div class="elevation-header">
+            <h2>Elevation Certificates for Brunswick County, NC</h2>
+            <p>Elevation Certificates are official FEMA documents used to verify compliance with community floodplain management ordinances, to determine proper insurance premium rates, and to support requests for Letter of Map Amendment (LOMA) or Letter of Map Revision based on Fill (LOMR-F). As a land surveyor in Brunswick County, understanding these certificates is essential for helping property owners manage flood risks and comply with regulations.</p>
+        </div>
+        
+        <!-- Quick Resources Section -->
+        <div class="elevation-sections">
+            <!-- FEMA Resources Section -->
+            <div class="elevation-section">
+                <h2>FEMA Resources</h2>
+                <a href="https://www.fema.gov/sites/default/files/documents/fema_form-ff-206-fy22-152.pdf" target="_blank" class="resource-link">
+                    <i class="fas fa-file-pdf"></i>
+                    <div>
+                        <span class="resource-link-title">Elevation Certificate Form</span>
+                        <span class="resource-link-desc">Official FEMA Elevation Certificate (expires 06/30/2026)</span>
                     </div>
-                    <div class="tools-container">
-                        <h2>FEMA Elevation Certificate Form</h2>
-                        <p>
-                            <i class="fas fa-file-pdf"></i>
-                            <a href="https://www.fema.gov/sites/default/files/documents/fema_form-ff-206-fy22-152.pdf" target="_blank">
-                                Download FEMA Elevation Certificate Form
-                            </a>
-                        </p>
+                </a>
+                <a href="https://www.fema.gov/sites/default/files/documents/fema_floodplain_elevation-certificate-faq_2023.pdf" target="_blank" class="resource-link">
+                    <i class="fas fa-question-circle"></i>
+                    <div>
+                        <span class="resource-link-title">Elevation Certificate FAQ</span>
+                        <span class="resource-link-desc">Frequently asked questions about Elevation Certificates</span>
                     </div>
-                    <div class="tools-container">
-                        <h2>Local Flood Maps</h2>
-                        <p>
-                            <i class="fas fa-globe"></i>
-                            <a href="https://fris.nc.gov/" target="_blank">
-                                North Carolina Flood Risk Information System (FRIS)
-                            </a>
-                        </p>
+                </a>
+                <a href="https://www.fema.gov/sites/default/files/documents/fema_nfip-elevation-certificate-instructions_feb-2020.pdf" target="_blank" class="resource-link">
+                    <i class="fas fa-book"></i>
+                    <div>
+                        <span class="resource-link-title">EC Instructions Guide</span>
+                        <span class="resource-link-desc">Detailed instructions for completing the Elevation Certificate</span>
                     </div>
-                    <div class="tools-container">
-                        <h2>Building Models</h2>
-                        <p>
-                            Review common building types from the FEMA Elevation Certificate. See the
-                            <a href="https://www.fema.gov/sites/default/files/documents/fema_form-ff-206-fy22-152.pdf" target="_blank">
-                                FEMA form
-                            </a>
-                            for diagrams.
-                        </p>
-                        <div class="table-wrapper building-models-table-wrapper">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Diagram</th>
-                                        <th>Description</th>
-                                        <th>Identification Tips</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Slab-on-grade (other than split-level)</td>
-                                        <td>First floor at ground level, no crawlspace or basement.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Raised slab-on-grade or slab-on-stem-wall with fill</td>
-                                        <td>Slab raised above ground with fill, no split-level.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Basement (including walkout)</td>
-                                        <td>Lower level below ground, finished or unfinished.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Split-level slab-on-grade</td>
-                                        <td>Multiple levels, some at ground, others raised.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Elevated with crawlspace</td>
-                                        <td>Raised with accessible crawlspace beneath.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>Elevated with enclosure (not posts/piles/piers)</td>
-                                        <td>Elevated with enclosed lower area, solid walls.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Elevated on posts, piles, or piers</td>
-                                        <td>Raised on supports, open space below, common in coastal zones.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td>Elevated with subgrade crawlspace</td>
-                                        <td>Elevated, crawlspace below ground level.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>9</td>
-                                        <td>Non-elevated with subgrade crawlspace</td>
-                                        <td>Non-elevated with subgrade crawlspace</td>
-                                        <td>Ground-level with crawlspace below grade.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                </a>
+                <a href="https://msc.fema.gov/portal/home" target="_blank" class="resource-link">
+                    <i class="fas fa-map"></i>
+                    <div>
+                        <span class="resource-link-title">FEMA Map Service Center</span>
+                        <span class="resource-link-desc">Official source for FIRMs, FIS reports, and related products</span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- North Carolina Resources Section -->
+            <div class="elevation-section">
+                <h2>NC & Brunswick County Resources</h2>
+                <a href="https://fris.nc.gov/fris/Home.aspx?ST=NC" target="_blank" class="resource-link">
+                    <i class="fas fa-globe"></i>
+                    <div>
+                        <span class="resource-link-title">NC Flood Risk Information System</span>
+                        <span class="resource-link-desc">Interactive flood hazard data for North Carolina</span>
+                    </div>
+                </a>
+                <a href="https://ncfloodmaps.com/" target="_blank" class="resource-link">
+                    <i class="fas fa-water"></i>
+                    <div>
+                        <span class="resource-link-title">NC Floodplain Mapping Program</span>
+                        <span class="resource-link-desc">State flood mapping resources and updates</span>
+                    </div>
+                </a>
+                <a href="https://www.brunswickcountync.gov/emergency/floodplain/" target="_blank" class="resource-link">
+                    <i class="fas fa-building"></i>
+                    <div>
+                        <span class="resource-link-title">Brunswick County Floodplain Administration</span>
+                        <span class="resource-link-desc">Local flood regulations and management</span>
+                    </div>
+                </a>
+                <a href="https://www.ncsurveyors.com/" target="_blank" class="resource-link">
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <span class="resource-link-title">NC Society of Surveyors</span>
+                        <span class="resource-link-desc">Professional resources for land surveyors</span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Surveyor Tools Section -->
+            <div class="elevation-section">
+                <h2>Surveyor Tools</h2>
+                <a href="https://www.ngs.noaa.gov/cgi-bin/VERTCON/vert_con.prl" target="_blank" class="resource-link">
+                    <i class="fas fa-exchange-alt"></i>
+                    <div>
+                        <span class="resource-link-title">VERTCON Calculator</span>
+                        <span class="resource-link-desc">Convert between NGVD29 and NAVD88 vertical datums</span>
+                    </div>
+                </a>
+                <a href="https://geodesy.noaa.gov/OPUS/" target="_blank" class="resource-link">
+                    <i class="fas fa-satellite"></i>
+                    <div>
+                        <span class="resource-link-title">NOAA OPUS</span>
+                        <span class="resource-link-desc">Online Positioning User Service for GPS processing</span>
+                    </div>
+                </a>
+                <a href="https://www.ngs.noaa.gov/NGSDataExplorer/" target="_blank" class="resource-link">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <span class="resource-link-title">NGS Data Explorer</span>
+                        <span class="resource-link-desc">Find survey control points and benchmarks</span>
+                    </div>
+                </a>
+                <a href="https://www.fema.gov/media-library-data/20130726-1437-20490-0232/fema499_1_4.pdf" target="_blank" class="resource-link">
+                    <i class="fas fa-ruler-combined"></i>
+                    <div>
+                        <span class="resource-link-title">FEMA Home Builders Guide</span>
+                        <span class="resource-link-desc">Coastal construction guidelines and technical resources</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Building Model Classification System -->
+        <div class="model-classification">
+            <h2>Building Model Classification System</h2>
+            <p>Upload a photo of a building to get an AI-assisted recommendation for which FEMA building diagram should be used on the Elevation Certificate. This tool helps identify the appropriate building diagram category based on visual characteristics.</p>
+            
+            <form id="model-classification-form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" name="building_image" accept="image/*" required>
+                <button type="submit">Analyze Building</button>
+            </form>
+            
+            <div id="model-classification-result"></div>
+        </div>
+        
+        <!-- Flood Zone Lookup -->
+        <div class="flood-zone-lookup">
+            <h2>Brunswick County Flood Zone Lookup</h2>
+            <p>Enter a Brunswick County address to get estimated flood zone information. For official determinations, always refer to the North Carolina FRIS or consult with a licensed surveyor.</p>
+            
+            <form id="flood-zone-lookup-form">
+                <input type="text" id="flood-zone-address" placeholder="Enter a Brunswick County address..." required>
+                <button type="submit">Lookup Flood Zone</button>
+            </form>
+            
+            <div id="flood-zone-result"></div>
+        </div>
+        
+        <!-- Building Models Section -->
+        <div class="building-models">
+            <h2>FEMA Building Diagram Reference</h2>
+            <p>The following building diagrams correspond to the most common building types specified on FEMA Elevation Certificates. Understanding which diagram applies to a structure is crucial for accurate certification.</p>
+            
+            <div class="model-grid">
+                <!-- Diagram 1 -->
+                <div class="model-card" id="model-1">
+                    <div class="model-card-header">
+                        <h3>Diagram 1: Slab on Grade</h3>
+                    </div>
+                    <div class="model-card-body">
+                        <div class="model-image">
+                            <img src="https://www.fema.gov/sites/default/files/2020-07/fema_nfip_flood-diagram-1.jpg" onerror="this.src='https://via.placeholder.com/300x150?text=Diagram+1'" alt="Diagram 1">
                         </div>
-                        <p>
-                            <strong>Note:</strong> Visit the
-                            <a href="https://www.fema.gov/" target="_blank">FEMA website</a>
-                            for the latest form and updates.
-                        </p>
+                        <p>Building on slab-on-grade with no basement. First floor at ground level.</p>
+                        <button class="model-details-toggle" data-model="1">Show Details</button>
+                        <div class="model-details" id="details-1">
+                            <h4>Identification Features:</h4>
+                            <ul class="model-features">
+                                <li>No visible elevation above surrounding grade</li>
+                                <li>No crawlspace or basement</li>
+                                <li>Finished floor is at or very near ground level</li>
+                                <li>Foundation is slab on compacted fill</li>
+                            </ul>
+                            <h4>Documentation Requirements:</h4>
+                            <p>When documenting this building type, measure the top of the bottom floor (C2.a) which is typically at the top of the slab. Also document the highest adjacent grade (C2.f) and lowest adjacent grade (C2.e).</p>
+                            <h4>Common in Brunswick County:</h4>
+                            <p>This building type is common in non-coastal areas of Brunswick County, particularly in newer subdivisions built outside of special flood hazard areas.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="right-column">
-                    <div class="tools-container">
-                        <h2>About Elevation Certificates</h2>
-                        <p>
-                            FEMA Elevation Certificates document a property's First Floor Height (FFH) and adjacent elevation,
-                            essential for flood risk assessment under the National Flood Insurance Program (NFIP).
-                        </p>
-                        <h3>How to Obtain One</h3>
-                        <p>
-                            Contact local floodplain managers, hire licensed surveyors/engineers/architects, or self-certify
-                            in some cases.
-                        </p>
-                        <h3>Why They Matter</h3>
-                        <p>
-                            They determine flood risk, ensure regulatory compliance, and can influence insurance rates or
-                            flood zone status.
-                        </p>
-                        <h3>Tips for Property Owners</h3>
-                        <p>
-                            Keep certificates current, especially after modifications. Understand FFH and consider elevating
-                            structures to reduce risk and insurance costs.
-                        </p>
-                        <h3>Additional Resources</h3>
-                        <ul>
-                            <li>
-                                <a href="https://www.fema.gov/sites/default/files/documents/fema_floodplain_elevation-certificate-faq_2023.pdf" target="_blank">
-                                    FEMA Elevation Certificate FAQ
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.fema.gov/" target="_blank">
-                                    FEMA Official Website
-                                </a>
-                            </li>
-                        </ul>
+                
+                <!-- Diagram 2 -->
+                <div class="model-card" id="model-2">
+                    <div class="model-card-header">
+                        <h3>Diagram 2: Raised Slab</h3>
+                    </div>
+                    <div class="model-card-body">
+                        <div class="model-image">
+                            <img src="https://www.fema.gov/sites/default/files/2020-07/fema_nfip_flood-diagram-2.jpg" onerror="this.src='https://via.placeholder.com/300x150?text=Diagram+2'" alt="Diagram 2">
+                        </div>
+                        <p>Building with a raised slab foundation above grade or slab-on-stem-wall with fill.</p>
+                        <button class="model-details-toggle" data-model="2">Show Details</button>
+                        <div class="model-details" id="details-2">
+                            <h4>Identification Features:</h4>
+                            <ul class="model-features">
+                                <li>Slab is visibly raised above surrounding grade</li>
+                                <li>Often has steps leading to entrance</li>
+                                <li>No crawlspace or accessible area under the slab</li>
+                                <li>Typically built on compacted fill with stem walls</li>
+                            </ul>
+                            <h4>Documentation Requirements:</h4>
+                            <p>Measure the top of the bottom floor (C2.a) at the top of the raised slab. Document the top of the stem wall or foundation. Carefully document highest adjacent grade (C2.f) and lowest adjacent grade (C2.e).</p>
+                            <h4>Common in Brunswick County:</h4>
+                            <p>This building type is frequently found in moderate flood risk areas of Brunswick County where some elevation is desired but full elevation on piers isn't required.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Diagram 3 -->
+                <div class="model-card" id="model-3">
+                    <div class="model-card-header">
+                        <h3>Diagram 3: With Basement</h3>
+                    </div>
+                    <div class="model-card-body">
+                        <div class="model-image">
+                            <img src="https://www.fema.gov/sites/default/files/2020-07/fema_nfip_flood-diagram-3.jpg" onerror="this.src='https://via.placeholder.com/300x150?text=Diagram+3'" alt="Diagram 3">
+                        </div>
+                        <p>Building with a full or partial basement below grade on at least one side.</p>
+                        <button class="model-details-toggle" data-model="3">Show Details</button>
+                        <div class="model-details" id="details-3">
+                            <h4>Identification Features:</h4>
+                            <ul class="model-features">
+                                <li>Has below-grade space on at least one side</li>
+                                <li>Often has basement windows or walkout access</li>
+                                <li>Finished or unfinished lower level</li>
+                                <li>May have a slab-on-grade portion as well</li>
+                            </ul>
+                            <h4>Documentation Requirements:</h4>
+                            <p>Document both the top of the basement floor (C2.b) and the top of the next higher floor (C2.a). The bottom of the basement floor joist (C2.c) must also be measured. Pay careful attention to the highest adjacent grade (C2.f) relative to basement openings.</p>
+                            <h4>Common in Brunswick County:</h4>
+                            <p>This building type is uncommon in coastal areas of Brunswick County due to high water tables, but may be found in inland areas with suitable soil conditions.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Diagram 5 -->
+                <div class="model-card" id="model-5">
+                    <div class="model-card-header">
+                        <h3>Diagram 5: Elevated with Crawlspace</h3>
+                    </div>
+                    <div class="model-card-body">
+                        <div class="model-image">
+                            <img src="https://www.fema.gov/sites/default/files/2020-07/fema_nfip_flood-diagram-5.jpg" onerror="this.src='https://via.placeholder.com/300x150?text=Diagram+5'" alt="Diagram 5">
+                        </div>
+                        <p>Building with an elevated floor over a crawlspace, where the crawlspace is enclosed by solid perimeter walls.</p>
+                        <button class="model-details-toggle" data-model="5">Show Details</button>
+                        <div class="model-details" id="details-5">
+                            <h4>Identification Features:</h4>
+                            <ul class="model-features">
+                                <li>Elevated first floor with crawlspace below</li>
+                                <li>Perimeter walls extend from ground to bottom of first floor</li>
+                                <li>Often has vents or small access doors in perimeter walls</li>
+                                <li>Typically 2-4 feet of clearance in the crawlspace</li>
+                            </ul>
+                            <h4>Documentation Requirements:</h4>
+                            <p>Measure top of the first floor (C2.a), the floor of the crawlspace (C2.d), and verify whether proper flood vents are present. Document the square footage of the crawlspace and the area of flood openings (Section G).</p>
+                            <h4>Common in Brunswick County:</h4>
+                            <p>Very common in Brunswick County, especially in low to moderate flood risk areas. The crawlspace design provides protection from minor flooding while allowing utilities to be installed below the living space.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Diagram 6 -->
+                <div class="model-card" id="model-6">
+                    <div class="model-card-header">
+                        <h3>Diagram 6: Elevated with Enclosure</h3>
+                    </div>
+                    <div class="model-card-body">
+                        <div class="model-image">
+                            <img src="https://www.fema.gov/sites/default/files/2020-07/fema_nfip_flood-diagram-6.jpg" onerror="this.src='https://via.placeholder.com/300x150?text=Diagram+6'" alt="Diagram 6">
+                        </div>
+                        <p>Building with elevated living area and a fully enclosed area below that is not a crawlspace.</p>
+                        <button class="model-details-toggle" data-model="6">Show Details</button>
+                        <div class="model-details" id="details-6">
+                            <h4>Identification Features:</h4>
+                            <ul class="model-features">
+                                <li>Elevated living space with a full-height enclosure below</li>
+                                <li>Enclosure may be used for parking, storage, or building access</li>
+                                <li>Enclosure walls may have flood openings/vents</li>
+                                <li>Distinguishable from Diagram 7 by the use of solid perimeter walls rather than posts/piles/piers</li>
+                            </ul>
+                            <h4>Documentation Requirements:</h4>
+                            <p>Measure the top of the bottom floor (C2.a) at the elevated living floor. Document the enclosure floor (C2.d) and verify presence of proper flood openings (Section G). Document the use of the enclosure space in Section A8.</p>
+                            <h4>Common in Brunswick County:</h4>
+                            <p>Common in A-zone areas of Brunswick County. Often built to provide garage or storage space below with the living area safely elevated above the Base Flood Elevation.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Diagram 7 -->
+                <div class="model-card" id="model-7">
+                    <div class="model-card-header">
+                        <h3>Diagram 7: Elevated on Piles/Piers</h3>
+                    </div>
+                    <div class="model-card-body">
+                        <div class="model-image">
+                            <img src="https://www.fema.gov/sites/default/files/2020-07/fema_nfip_flood-diagram-7.jpg" onerror="this.src='https://via.placeholder.com/300x150?text=Diagram+7'" alt="Diagram 7">
+                        </div>
+                        <p>Building elevated on posts, piles, piers, or columns with open area below the elevated floor.</p>
+                        <button class="model-details-toggle" data-model="7">Show Details</button>
+                        <div class="model-details" id="details-7">
+                            <h4>Identification Features:</h4>
+                            <ul class="model-features">
+                                <li>Elevated structure on piles, piers, or columns</li>
+                                <li>Open area beneath structure (may have partial enclosure)</li>
+                                <li>Often has steps or stairs to access elevated living area</li>
+                                <li>Typically elevated 8+ feet in coastal areas</li>
+                            </ul>
+                            <h4>Documentation Requirements:</h4>
+                            <p>Measure top of bottom floor (C2.a) at the elevated living floor. If there are enclosures, document their square footage and flood vent details (Section G). For coastal areas, document the bottom of the lowest horizontal structural member (C2.c).</p>
+                            <h4>Common in Brunswick County:</h4>
+                            <p>Very common in coastal VE zones of Brunswick County, including beach communities like Oak Island, Ocean Isle Beach, and Holden Beach. Required in high-risk coastal areas to allow storm surge to pass beneath the structure.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Diagram 8 -->
+                <div class="model-card" id="model-8">
+                    <div class="model-card-header">
+                        <h3>Diagram 8: Elevated with Subgrade Crawlspace</h3>
+                    </div>
+                    <div class="model-card-body">
+                        <div class="model-image">
+                            <img src="https://www.fema.gov/sites/default/files/2020-07/fema_nfip_flood-diagram-8.jpg" onerror="this.src='https://via.placeholder.com/300x150?text=Diagram+8'" alt="Diagram 8">
+                        </div>
+                        <p>Elevated building with a crawlspace that is partially or fully below grade.</p>
+                        <button class="model-details-toggle" data-model="8">Show Details</button>
+                        <div class="model-details" id="details-8">
+                            <h4>Identification Features:</h4>
+                            <ul class="model-features">
+                                <li>Elevated first floor with crawlspace below</li>
+                                <li>Crawlspace is partially or fully below grade on all sides</li>
+                                <li>Often has vents or small access doors</li>
+                                <li>The grade slopes away from the foundation</li>
+                            </ul>
+                            <h4>Documentation Requirements:</h4>
+                            <p>Measure the top of the first floor (C2.a), the crawlspace floor (C2.d), and verify whether proper flood vents are present. Document both the highest adjacent grade (C2.f) and lowest adjacent grade (C2.e) in relation to the crawlspace.</p>
+                            <h4>Common in Brunswick County:</h4>
+                            <p>Found in some inland areas of Brunswick County with sloping lots where the crawlspace may be partially below grade on the uphill side.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Diagram 9 -->
+                <div class="model-card" id="model-9">
+                    <div class="model-card-header">
+                        <h3>Diagram 9: Non-elevated with Subgrade Crawlspace</h3>
+                    </div>
+                    <div class="model-card-body">
+                        <div class="model-image">
+                            <img src="https://www.fema.gov/sites/default/files/2020-07/fema_nfip_flood-diagram-9.jpg" onerror="this.src='https://via.placeholder.com/300x150?text=Diagram+9'" alt="Diagram 9">
+                        </div>
+                        <p>Building with a crawlspace below grade but without significant elevation of the first floor.</p>
+                        <button class="model-details-toggle" data-model="9">Show Details</button>
+                        <div class="model-details" id="details-9">
+                            <h4>Identification Features:</h4>
+                            <ul class="model-features">
+                                <li>First floor close to grade level</li>
+                                <li>Crawlspace is below grade on all sides</li>
+                                <li>Often has vents or small access doors</li>
+                                <li>Similar to Diagram 8 but without significant elevation</li>
+                            </ul>
+                            <h4>Documentation Requirements:</h4>
+                            <p>Measure the top of the first floor (C2.a), the crawlspace floor (C2.d), and document the highest adjacent grade (C2.f) and lowest adjacent grade (C2.e). Verify whether proper flood vents are present.</p>
+                            <h4>Common in Brunswick County:</h4>
+                            <p>Less common in flood-prone areas of Brunswick County, but may be found in older homes in slightly elevated inland areas built before current flood regulations.</p>
+                        </div>
                     </div>
                 </div>
             </div>
+            
+            <div class="model-notes">
+                <p><strong>Note:</strong> These diagrams correspond to the building types defined on the FEMA Elevation Certificate. When completing an Elevation Certificate, select the diagram that most closely resembles the subject building. Additional measurements and certifications may be required based on the specific details of the structure.</p>
+            </div>
         </div>
+    </div>
+</div>
 
         <!-- Document Tools Content -->
         <div id="document-tools-content" class="tab-content">
@@ -1272,8 +1497,9 @@
     </footer>
 
     <!-- JavaScript files -->
-    <script src="{% static 'js/document-processing.js' %}"></script>
-    <script src="{% static 'js/drafting-tools.js' %}"></script>
-    <script src="{% static 'conversions/converter.js' %}"></script>
+<script src="{% static 'js/document-processing.js' %}"></script>
+<script src="{% static 'js/drafting-tools.js' %}"></script>
+<script src="{% static 'js/elevation-certificates.js' %}"></script>
+<script src="{% static 'conversions/converter.js' %}"></script>
 </body>
 </html>
