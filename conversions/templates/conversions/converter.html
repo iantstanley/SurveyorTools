@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit Conversion Suite</title>
+    <title>Stanley Survey Solutions</title>
     <link rel="stylesheet" href="{% static 'conversions/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'conversions/document-styles.css' %}">
+    <link rel="stylesheet" href="{% static 'conversions/drafting-styles.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
@@ -263,273 +265,109 @@
         <div id="drafting-tools-content" class="tab-content">
             <h1>Stanley Survey Solutions - Drafting Tools</h1>
             <div class="main-container">
-                <div class="left-column">
-                    <div class="tools-container">
-                        <h2>AutoCAD Civil 3D Commands & Shortcuts</h2>
-                        <input type="text" id="command-search" placeholder="Search commands...">
-                        <div class="command-list-wrapper">
-                            <ul class="command-list">
-                                <li>
-                                    <strong>Command:</strong> SETTINGS<br>
-                                    <strong>Shortcut:</strong> SETTINGS<br>
-                                    <strong>Description:</strong> Opens the drawing settings dialog to configure Civil 3D options.<br>
-                                    <strong>Example:</strong> Use SETTINGS to adjust units or coordinate systems for a project.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> AECTOACAD<br>
-                                    <strong>Shortcut:</strong> AECTOACAD<br>
-                                    <strong>Description:</strong> Exports Civil 3D objects to standard AutoCAD format, allowing saving to older versions.<br>
-                                    <strong>Example:</strong> Use AECTOACAD to share drawings with users on older AutoCAD versions.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> MAPIMPORT<br>
-                                    <strong>Shortcut:</strong> MAPIMPORT<br>
-                                    <strong>Description:</strong> Imports GIS data or map files (e.g., shapefiles) into the drawing.<br>
-                                    <strong>Example:</strong> Use MAPIMPORT to bring in parcel boundaries from a shapefile.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> LINE<br>
-                                    <strong>Shortcut:</strong> L<br>
-                                    <strong>Description:</strong> Draws a straight line between two points.<br>
-                                    <strong>Example:</strong> Use LINE to draw property boundaries or road centerlines.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> PLINE<br>
-                                    <strong>Shortcut:</strong> PL<br>
-                                    <strong>Description:</strong> Draws a polyline, a connected sequence of line segments.<br>
-                                    <strong>Example:</strong> Use PLINE to create complex shapes like lot boundaries.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> CIRCLE<br>
-                                    <strong>Shortcut:</strong> C<br>
-                                    <strong>Description:</strong> Draws a circle based on center and radius or other parameters.<br>
-                                    <strong>Example:</strong> Use CIRCLE to represent manholes or well locations.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> ARC<br>
-                                    <strong>Shortcut:</strong> A<br>
-                                    <strong>Description:</strong> Draws an arc based on specified parameters.<br>
-                                    <strong>Example:</strong> Use ARC to create curved segments of roads or boundaries.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> TEXT<br>
-                                    <strong>Shortcut:</strong> DT<br>
-                                    <strong>Description:</strong> Creates single-line text for annotations.<br>
-                                    <strong>Example:</strong> Use TEXT to label survey points or features.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> MTEXT<br>
-                                    <strong>Shortcut:</strong> T<br>
-                                    <strong>Description:</strong> Creates multiline text for detailed notes.<br>
-                                    <strong>Example:</strong> Use MTEXT for project descriptions or drawing notes.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> DIM<br>
-                                    <strong>Shortcut:</strong> D<br>
-                                    <strong>Description:</strong> Creates dimensions to measure distances or angles.<br>
-                                    <strong>Example:</strong> Use DIM to show the length of a property line.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> HATCH<br>
-                                    <strong>Shortcut:</strong> H<br>
-                                    <strong>Description:</strong> Fills an enclosed area with a pattern.<br>
-                                    <strong>Example:</strong> Use HATCH to indicate different land use zones.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> BLOCK<br>
-                                    <strong>Shortcut:</strong> B<br>
-                                    <strong>Description:</strong> Creates a block definition from selected objects.<br>
-                                    <strong>Example:</strong> Use BLOCK to create reusable symbols like trees or utility poles.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> INSERT<br>
-                                    <strong>Shortcut:</strong> I<br>
-                                    <strong>Description:</strong> Inserts a block into the drawing.<br>
-                                    <strong>Example:</strong> Use INSERT to place tree blocks across a site plan.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> LAYER<br>
-                                    <strong>Shortcut:</strong> LA<br>
-                                    <strong>Description:</strong> Manages layers to organize drawing objects.<br>
-                                    <strong>Example:</strong> Use LAYER to separate survey points, boundaries, and utilities.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> PROPERTIES<br>
-                                    <strong>Shortcut:</strong> PR<br>
-                                    <strong>Description:</strong> Displays and edits properties of selected objects.<br>
-                                    <strong>Example:</strong> Use PROPERTIES to change the linetype of a boundary.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> COGO<br>
-                                    <strong>Shortcut:</strong> COGO<br>
-                                    <strong>Description:</strong> Provides coordinate geometry tools for creating points, lines, and curves.<br>
-                                    <strong>Example:</strong> Use COGO to plot a point using bearing and distance.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> SURVEY<br>
-                                    <strong>Shortcut:</strong> SURVEY<br>
-                                    <strong>Description:</strong> Manages survey data, including points and networks.<br>
-                                    <strong>Example:</strong> Use SURVEY to import and process field data.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> POINT<br>
-                                    <strong>Shortcut:</strong> PO<br>
-                                    <strong>Description:</strong> Creates and manages survey points.<br>
-                                    <strong>Example:</strong> Use POINT to mark control points or benchmarks.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> CREATESURVEYFIGURE<br>
-                                    <strong>Shortcut:</strong> CREATESURVEYFIGURE<br>
-                                    <strong>Description:</strong> Creates survey figures from points.<br>
-                                    <strong>Example:</strong> Use CREATESURVEYFIGURE to draw lot lines from survey points.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> ADJUSTSURVEYNETWORK<br>
-                                    <strong>Shortcut:</strong> ADJUSTSURVEYNETWORK<br>
-                                    <strong>Description:</strong> Adjusts survey networks for improved accuracy.<br>
-                                    <strong>Example:</strong> Use ADJUSTSURVEYNETWORK to refine a traverse.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> IMPORTSURVEYDATA<br>
-                                    <strong>Shortcut:</strong> IMPORTSURVEYDATA<br>
-                                    <strong>Description:</strong> Imports survey data from external sources.<br>
-                                    <strong>Example:</strong> Use IMPORTSURVEYDATA to load points from a CSV file.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> ALIGNMENT<br>
-                                    <strong>Shortcut:</strong> ALIGNMENT<br>
-                                    <strong>Description:</strong> Creates and edits alignments for roads or boundaries.<br>
-                                    <strong>Example:</strong> Use ALIGNMENT to design a road centerline.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> PROFILE<br>
-                                    <strong>Shortcut:</strong> PROFILE<br>
-                                    <strong>Description:</strong> Creates and edits vertical profiles.<br>
-                                    <strong>Example:</strong> Use PROFILE to design a road’s elevation profile.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> SECTION<br>
-                                    <strong>Shortcut:</strong> SECTION<br>
-                                    <strong>Description:</strong> Manages cross-sections for analysis.<br>
-                                    <strong>Example:</strong> Use SECTION to analyze terrain cuts and fills.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> GRADING<br>
-                                    <strong>Shortcut:</strong> GRADING<br>
-                                    <strong>Description:</strong> Designs and analyzes grading operations.<br>
-                                    <strong>Example:</strong> Use GRADING to plan site earthwork.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> PARCEL<br>
-                                    <strong>Shortcut:</strong> PARCEL<br>
-                                    <strong>Description:</strong> Creates and manages land parcels.<br>
-                                    <strong>Example:</strong> Use PARCEL to define and label property lots.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> SURFACE<br>
-                                    <strong>Shortcut:</strong> SURFACE<br>
-                                    <strong>Description:</strong> Creates and edits surfaces for terrain modeling.<br>
-                                    <strong>Example:</strong> Use SURFACE to model a site’s topography.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> PIPENETWORK<br>
-                                    <strong>Shortcut:</strong> PIPENETWORK<br>
-                                    <strong>Description:</strong> Designs and analyzes pipe networks for utilities.<br>
-                                    <strong>Example:</strong> Use PIPENETWORK to layout a stormwater system.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> DATAEXTRACTION<br>
-                                    <strong>Shortcut:</strong> DATAEXTRACTION<br>
-                                    <strong>Description:</strong> Extracts data from drawings for reports.<br>
-                                    <strong>Example:</strong> Use DATAEXTRACTION to list parcel areas.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> EXPORTTOAUTOCAD<br>
-                                    <strong>Shortcut:</strong> EXPORTTOAUTOCAD<br>
-                                    <strong>Description:</strong> Converts Civil 3D objects to AutoCAD objects.<br>
-                                    <strong>Example:</strong> Use EXPORTTOAUTOCAD for compatibility with AutoCAD users.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> IMPORT<br>
-                                    <strong>Shortcut:</strong> IMPORT<br>
-                                    <strong>Description:</strong> Imports various file formats into Civil 3D.<br>
-                                    <strong>Example:</strong> Use IMPORT to bring in DWG or DXF files.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> EXPORT<br>
-                                    <strong>Shortcut:</strong> EXPORT<br>
-                                    <strong>Description:</strong> Exports Civil 3D data to other formats.<br>
-                                    <strong>Example:</strong> Use EXPORT to save surface data as a LandXML file.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> QUICKSELECT<br>
-                                    <strong>Shortcut:</strong> QSELECT<br>
-                                    <strong>Description:</strong> Selects objects based on specified properties.<br>
-                                    <strong>Example:</strong> Use QUICKSELECT to select all points on a layer.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> PURGE<br>
-                                    <strong>Shortcut:</strong> PU<br>
-                                    <strong>Description:</strong> Removes unused objects to reduce file size.<br>
-                                    <strong>Example:</strong> Use PURGE to clean up a drawing before submission.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> AUDIT<br>
-                                    <strong>Shortcut:</strong> AUDIT<br>
-                                    <strong>Description:</strong> Checks and fixes drawing errors.<br>
-                                    <strong>Example:</strong> Use AUDIT to repair a corrupted file.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> RECOVER<br>
-                                    <strong>Shortcut:</strong> RECOVER<br>
-                                    <strong>Description:</strong> Recovers damaged drawings.<br>
-                                    <strong>Example:</strong> Use RECOVER to open a crashed file.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> OPTIONS<br>
-                                    <strong>Shortcut:</strong> OP<br>
-                                    <strong>Description:</strong> Opens the options dialog for Civil 3D settings.<br>
-                                    <strong>Example:</strong> Use OPTIONS to customize drafting preferences.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> GEOMAP<br>
-                                    <strong>Shortcut:</strong> GEOMAP<br>
-                                    <strong>Description:</strong> Displays aerial maps in the drawing.<br>
-                                    <strong>Example:</strong> Use GEOMAP to overlay site data with satellite imagery.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> GEOLOCATION<br>
-                                    <strong>Shortcut:</strong> GEOLOCATION<br>
-                                    <strong>Description:</strong> Sets the geographic location of the drawing.<br>
-                                    <strong>Example:</strong> Use GEOLOCATION to align with real-world coordinates.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> COGOEDITOR<br>
-                                    <strong>Shortcut:</strong> COGOEDITOR<br>
-                                    <strong>Description:</strong> Edits COGO points interactively.<br>
-                                    <strong>Example:</strong> Use COGOEDITOR to adjust point coordinates.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> LABEL<br>
-                                    <strong>Shortcut:</strong> LABEL<br>
-                                    <strong>Description:</strong> Creates and manages labels for annotations.<br>
-                                    <strong>Example:</strong> Use LABEL to add elevation labels to contours.
-                                </li>
-                                <li>
-                                    <strong>Command:</strong> STYLE<br>
-                                    <strong>Shortcut:</strong> STYLE<br>
-                                    <strong>Description:</strong> Manages styles for points, labels, and other objects.<br>
-                                    <strong>Example:</strong> Use STYLE to standardize point marker appearances.
-                                </li>
-                            </ul>
+                <!-- Quick Resources Section -->
+                <h2 class="section-title">Quick Resources for Land Surveyors</h2>
+                
+                <div class="card-grid">
+                    <!-- CAD Standards Resource -->
+                    <div class="resource-card">
+                        <div class="resource-card-icon">
+                            <i class="fas fa-ruler-combined"></i>
                         </div>
+                        <h3>CAD Standards</h3>
+                        <p>Access standard templates, layer naming conventions, and plotting styles for land surveying projects.</p>
+                        <a href="https://www.nationalcadstandard.org/ncs6/" target="_blank">View Standards</a>
+                    </div>
+                    
+                    <!-- Linetypes Resource -->
+                    <div class="resource-card">
+                        <div class="resource-card-icon">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                        <h3>Linetypes Library</h3>
+                        <p>Browse and download custom linetypes for boundary surveys, topographic maps, and site plans.</p>
+                        <a href="https://knowledge.autodesk.com/support/autocad/learn-explore/caas/CloudHelp/cloudhelp/2023/ENU/AutoCAD-Core/files/GUID-A04D139B-9628-4134-9235-8027089ACF25-htm.html" target="_blank">Browse Library</a>
+                    </div>
+                    
+                    <!-- Block Library Resource -->
+                    <div class="resource-card">
+                        <div class="resource-card-icon">
+                            <i class="fas fa-th-large"></i>
+                        </div>
+                        <h3>Survey Block Library</h3>
+                        <p>Download ready-to-use blocks for survey objects, including monuments, utilities, and vegetation.</p>
+                        <a href="https://land-surveyors-united.org/photo/albums" target="_blank">Browse Blocks</a>
+                    </div>
+                    
+                    <!-- GIS Data Resource -->
+                    <div class="resource-card">
+                        <div class="resource-card-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <h3>GIS Data Sources</h3>
+                        <p>Find GIS data for Brunswick County, North Carolina, including parcel boundaries and topography.</p>
+                        <a href="https://gis.brunswickcountync.gov/maps/" target="_blank">Access GIS Data</a>
+                    </div>
+                    
+                    <!-- Coordinate Systems Resource -->
+                    <div class="resource-card">
+                        <div class="resource-card-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Coordinate Systems</h3>
+                        <p>Reference guide for coordinate systems used in North Carolina land surveying.</p>
+                        <a href="https://www.ngs.noaa.gov/CORS-Proxy/Glossary/xml/NGS_Glossary.xml" target="_blank">View Guide</a>
+                    </div>
+                    
+                    <!-- Civil 3D Tutorials -->
+                    <div class="resource-card">
+                        <div class="resource-card-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Civil 3D Tutorials</h3>
+                        <p>Access step-by-step tutorials for common land surveying tasks in AutoCAD Civil 3D.</p>
+                        <a href="https://knowledge.autodesk.com/support/civil-3d/learn" target="_blank">View Tutorials</a>
                     </div>
                 </div>
-                <div class="right-column">
-                    <div class="tools-container">
-                        <h2>About Drafting Tools</h2>
-                        <p>This section provides a list of common AutoCAD Civil 3D commands and shortcuts useful for land surveying tasks. Use the search bar to find specific commands or browse the list below.</p>
+                
+                <!-- Commands & Shortcuts Section -->
+                <h2 class="section-title">AutoCAD Civil 3D Commands & Shortcuts</h2>
+                
+                <div class="commands-container">
+                    <input type="text" id="command-search" placeholder="Search for commands...">
+                    
+                    <div class="command-categories">
+                        <button class="category-btn active" data-category="all">All Commands</button>
+                        <button class="category-btn" data-category="general">General</button>
+                        <button class="category-btn" data-category="survey">Survey</button>
+                        <button class="category-btn" data-category="editing">Editing</button>
+                        <button class="category-btn" data-category="points">Points</button>
+                        <button class="category-btn" data-category="analysis">Analysis</button>
+                        <button class="category-btn" data-category="parcels">Parcels</button>
+                        <button class="category-btn" data-category="utilities">Utilities</button>
                     </div>
+                    
+                    <div class="command-list-wrapper">
+                        <ul class="command-list">
+                            <!-- Commands content - already in the file -->
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Tutorials and Resources Section -->
+                <h2 class="section-title">Tutorials & Resources for Land Surveyors</h2>
+                
+                <div class="tutorials-container">
+                    <div class="tutorial-list">
+                        <!-- Tutorial cards - already in the file -->
+                    </div>
+                </div>
+                
+                <!-- Regional Resources Section -->
+                <h2 class="section-title">North Carolina Surveyor Resources</h2>
+                
+                <div class="card-grid">
+                    <!-- Regional resources - already in the file -->
                 </div>
             </div>
         </div>
@@ -626,6 +464,7 @@
                                     <tr>
                                         <td>9</td>
                                         <td>Non-elevated with subgrade crawlspace</td>
+                                        <td>Non-elevated with subgrade crawlspace</td>
                                         <td>Ground-level with crawlspace below grade.</td>
                                     </tr>
                                 </tbody>
@@ -642,7 +481,7 @@
                     <div class="tools-container">
                         <h2>About Elevation Certificates</h2>
                         <p>
-                            FEMA Elevation Certificates document a property’s First Floor Height (FFH) and adjacent elevation,
+                            FEMA Elevation Certificates document a property's First Floor Height (FFH) and adjacent elevation,
                             essential for flood risk assessment under the National Flood Insurance Program (NFIP).
                         </p>
                         <h3>How to Obtain One</h3>
@@ -727,6 +566,9 @@
         <p>© 2025 Stanley Survey Solutions. All rights reserved.</p>
     </footer>
 
+    <!-- JavaScript files -->
+    <script src="{% static 'js/document-processing.js' %}"></script>
+    <script src="{% static 'js/drafting-tools.js' %}"></script>
     <script src="{% static 'conversions/converter.js' %}"></script>
 </body>
 </html>

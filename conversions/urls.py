@@ -12,4 +12,6 @@ app_name = 'conversions'
 
 urlpatterns = [
     path('', views.converter, name='converter'),
+    path('upload-document/', views.upload_document, name='upload_document'),
+    path('extract-deed-info/', views.extract_deed_info, name='extract_deed_info'),
 ]
